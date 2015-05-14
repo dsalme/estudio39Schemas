@@ -3,9 +3,6 @@
 
   var mongoose = require('mongoose');
   var Schema = mongoose.Schema;
-  var crypto = require('crypto');
-  var authTypes = ['github', 'twitter', 'facebook', 'google'];
-
 
   var TeacherSchema = new Schema({
     name: String,
@@ -25,8 +22,16 @@
         turns: [
           {
             activity: {id: String},
-            students: [{id: String}],
-            time: String
+            students: [
+              {id: String}
+            ],
+            time: String,
+            payments: [
+              {
+                debt: 2,
+                period: 1
+              }
+            ]
           }
         ]
       }
@@ -35,7 +40,6 @@
     facebook: String
   });
 
-  module.exports = mongoose.model('Masters', TeacherSchema);
-
+  module.exports = mongoose.model('Teacher', TeacherSchema);
 
 })();
