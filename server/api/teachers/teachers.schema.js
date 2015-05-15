@@ -36,7 +36,7 @@
         ]
       }
     ],
-    createDate: date,
+    createDate: String,
     facebook: String
   });
 
